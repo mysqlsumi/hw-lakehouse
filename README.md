@@ -1,2 +1,3 @@
-# hw-lakehouse
+# HeatWave-lakehouse
 How to run HeatWave Lakehouse
+
