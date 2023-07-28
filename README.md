@@ -27,5 +27,6 @@ call sys.heatwave_load(@db_list, @options);
 
 ## 3. 참고자료
 https://blogs.oracle.com/mysql/post/getting-started-with-mysql-heatwave-lakehouse
+https://dev.mysql.com/doc/heatwave/en/mys-hw-lakehouse.html
 
 
