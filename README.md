@@ -21,9 +21,9 @@ SET @options = JSON_OBJECT('mode', 'normal', 'external_tables', CAST(@ext_tables
 call sys.heatwave_load(@db_list, @options);
 ```
 ### 2) 실행 캡쳐 화면
-![image](https://github.com/mysqlsumi/hw-lakehouse/assets/31054795/1c8f263e-541b-4886-9706-964ccc2e0693)
+<img width="1131" alt="image" src="https://github.com/mysqlsumi/hw-lakehouse/assets/31054795/d988870a-742d-43c3-b750-0406c3b7fc53">
+<img width="1131" alt="image" src="https://github.com/mysqlsumi/hw-lakehouse/assets/31054795/93dcc27a-e3e3-4170-8318-93791137b60d">
 
-![image](https://github.com/mysqlsumi/hw-lakehouse/assets/31054795/0b225571-be42-465f-a66a-38eaa46fb3a9)
 
 ## 3. 참고자료
 https://blogs.oracle.com/mysql/post/getting-started-with-mysql-heatwave-lakehouse
