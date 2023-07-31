@@ -25,7 +25,11 @@ SELECT log->>"$.sql" AS "Load Script" FROM sys.heatwave_autopilot_report WHERE t
 ```
 #### 1-2. Using CSV file, Using PAR, manual laod
 ```
+CREATE TABLE IF NOT EXISTS `iot_data` (   `co` double,   `humidity` double ,   `temp` double  ) ENGINE=lakehouse SECONDARY_ENGINE=rapid   ENGINE_ATTRIBUTE='{"dialect": {"format": "csv", "field_delimiter":",", "record_delimiter": "\\n"},     "file": [{"par": "https://objectstorage.ap-seoul-1.oraclecloud.com/n/idazzjlcjqzj/b/iot-csv/o/iot_dataiot_telemetry_data3.csv"}]}';
 
+desc supplier;
+ALTER TABLE hwdemo.supplier SECONDARY_LOAD;
+SELECT * FROM mydemo.iot_data LIMIT3;
 ```
 ### 2) 실행 캡쳐 화면
 <img width="1131" alt="image" src="https://github.com/mysqlsumi/hw-lakehouse/assets/31054795/d988870a-742d-43c3-b750-0406c3b7fc53">
