@@ -54,6 +54,7 @@ SELECT * FROM tpch2.supplier LIMIT 1;
 ```
 
 ### 2) 실행 결과
+```
  MySQL  10.0.1.59:33060+ ssl  mydemo  SQL > SET @db_list = '["mydemo"]';
 Query OK, 0 rows affected (0.0009 sec)
  MySQL  10.0.1.59:33060+ ssl  mydemo  SQL > SET @par = 'https://objectstorage.ap-seoul-1.oraclecloud.com/n/idazzjlcjqzj/b/iot-csv/o/iot_dataiot_telemetry_data3.csv';
@@ -198,7 +199,7 @@ Load Script: ALTER TABLE `mydemo`.`iot_data2` SECONDARY_LOAD;
 2 rows in set (0.0006 sec)
  MySQL  10.0.1.59:33060+ ssl  mydemo  SQL > 
 
-
+```
 
 ## 3. 참고자료
 - [Oracle blog](https://blogs.oracle.com/mysql/post/getting-started-with-mysql-heatwave-lakehouse)
