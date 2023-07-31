@@ -55,6 +55,8 @@ SELECT * FROM tpch2.supplier LIMIT 1;
 
 ### 2) 실행 결과
 ```
+1-1 실행결과
+
  MySQL  10.0.1.59:33060+ ssl  mydemo  SQL > SET @db_list = '["mydemo"]';
 Query OK, 0 rows affected (0.0009 sec)
  MySQL  10.0.1.59:33060+ ssl  mydemo  SQL > SET @par = 'https://objectstorage.ap-seoul-1.oraclecloud.com/n/idazzjlcjqzj/b/iot-csv/o/iot_dataiot_telemetry_data3.csv';
@@ -198,6 +200,57 @@ Load Script: CREATE TABLE `mydemo`.`iot_data2`( `col_1` decimal(10,9) NOT NULL, 
 Load Script: ALTER TABLE `mydemo`.`iot_data2` SECONDARY_LOAD;
 2 rows in set (0.0006 sec)
  MySQL  10.0.1.59:33060+ ssl  mydemo  SQL > 
+
+
+1-2 실행 결과
+
+ MySQL  10.0.1.59:33060+ ssl  hwdemo  SQL > CREATE TABLE IF NOT EXISTS `supplier` (   `co` double,   `humidity` double ,   `temp` double  ) ENGINE=lakehouse SECONDARY_ENGINE=rapid   ENGINE_ATTRIBUTE='{"dialect": {"format": "csv", "field_delimiter":",", "record_delimiter": "\\n"},     "file": [{"par": "https://objectstorage.ap-seoul-1.oraclecloud.com/n/idazzjlcjqzj/b/iot-csv/o/iot_dataiot_telemetry_data3.csv"}]}';
+
+Query OK, 0 rows affected (0.0053 sec)
+
+ MySQL  10.0.1.59:33060+ ssl  hwdemo  SQL > show tables;
+
++------------------+
+
+| Tables_in_hwdemo |
+
++------------------+
+
+| supplier         |
+
++------------------+
+
+1 row in set (0.0010 sec)
+
+ MySQL  10.0.1.59:33060+ ssl  hwdemo  SQL > desc supplier;
+
++----------+--------+------+-----+---------+-------+
+
+| Field    | Type   | Null | Key | Default | Extra |
+
++----------+--------+------+-----+---------+-------+
+
+| co       | double | YES  |     | NULL    |       |
+
+| humidity | double | YES  |     | NULL    |       |
+
+| temp     | double | YES  |     | NULL    |       |
+
++----------+--------+------+-----+---------+-------+
+
+3 rows in set (0.0017 sec)
+
+ MySQL  10.0.1.59:33060+ ssl  hwdemo  SQL > ALTER TABLE hwdemo.supplier SECONDARY_LOAD;
+
+Query OK, 0 rows affected, 4 warnings (6.4117 sec)
+
+Warning (code 3877): Col 1 of row starting at {object: iot_dataiot_telemetry_data3.csv in region: ap-seoul-1, namespace: idazzjlcjqzj, bucket: iot-csv}:0: Data was truncated
+
+Warning (code 3877): Col 2 of row starting at {object: iot_dataiot_telemetry_data3.csv in region: ap-seoul-1, namespace: idazzjlcjqzj, bucket: iot-csv}:0: Data was truncated
+
+Warning (code 3877): Col 3 of row starting at {object: iot_dataiot_telemetry_data3.csv in region: ap-seoul-1, namespace: idazzjlcjqzj, bucket: iot-csv}:0: Data was truncated
+
+Warning (code 3877): Total Warnings: 3
 
 ```
 
