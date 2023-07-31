@@ -1,6 +1,16 @@
 # HeatWave-lakehouse
 How to run HeatWave Lakehouse
 
+## 0. 사전작업
+### 1) Create a bucket fro csv, txv, parquet, and so on.
+#### Create a bucket
+<img width="1370" alt="image" src="https://github.com/mysqlsumi/hw-lakehouse/assets/31054795/dfec5db0-a6ba-4eb2-a7a4-aed7c9e0ae4b">
+<img width="1512" alt="image" src="https://github.com/mysqlsumi/hw-lakehouse/assets/31054795/d79f5787-4b4f-47fe-8e27-f69eef6db427">
+### Create a PAR
+<img width="997" alt="image" src="https://github.com/mysqlsumi/hw-lakehouse/assets/31054795/1726d917-8d19-48f9-ab0f-4d456b56f240">
+
+
+
 ## 1. 실행 환경
 ### 1) Compute OS : OL 8 on OCI for bastion server
 ### 2) MDS Shape : MySQL.HeatWave.VM.Standard.E3, enabled lakehouse 
