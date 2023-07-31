@@ -30,6 +30,28 @@ CREATE TABLE IF NOT EXISTS `iot_data` (   `co` double,   `humidity` double ,   `
 ALTER TABLE hwdemo.supplier SECONDARY_LOAD;
 SELECT * FROM mydemo.iot_data LIMIT3;
 ```
+
+#### 1-3. Using TSV file, Using Resource Principal, manual laod
+In this case, you have to create a dynamic resource before you run the commands.
+```
+CREATE TABLE IF NOT EXISTS `supplier` (
+  `S_SUPPKEY` int NOT NULL,
+  `S_NAME` char(25) COLLATE utf8mb4_bin NOT NULL,
+  `S_ADDRESS` varchar(40) COLLATE utf8mb4_bin NOT NULL,
+  `S_NATIONKEY` int NOT NULL,
+  `S_PHONE` char(15) COLLATE utf8mb4_bin NOT NULL,
+  `S_ACCTBAL` decimal(15,2) NOT NULL,
+  `S_COMMENT` varchar(101) COLLATE utf8mb4_bin NOT NULL,
+  PRIMARY KEY (`S_SUPPKEY`)
+) ENGINE=lakehouse SECONDARY_ENGINE=rapid
+  ENGINE_ATTRIBUTE='{"dialect": {"format": "csv", "field_delimiter": "\\t", "record_delimiter": "\\n"},
+    "file": [{"region": "ap-osaka-1", "namespace": "idazzjlcjqzj", "bucket": "Lakehouse", "name": "tpch/supplier0.tsv"}]}';
+
+ALTER TABLE tpch2.supplier SECONDARY_LOAD;
+
+SELECT * FROM tpch2.supplier LIMIT 1;
+```
+
 ### 2) 실행 캡쳐 화면
 <img width="1131" alt="image" src="https://github.com/mysqlsumi/hw-lakehouse/assets/31054795/d988870a-742d-43c3-b750-0406c3b7fc53">
 <img width="1131" alt="image" src="https://github.com/mysqlsumi/hw-lakehouse/assets/31054795/93dcc27a-e3e3-4170-8318-93791137b60d">
