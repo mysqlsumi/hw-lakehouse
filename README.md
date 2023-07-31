@@ -2,7 +2,7 @@
 How to run HeatWave Lakehouse
 
 ## 0. 사전작업
-### 1) Create a bucket fro csv, txv, parquet, and so on.
+### 1) Create a bucket for csv, txv, parquet, and so on.
 #### Create a bucket & upload the file to click [Drop files here or선택된 파일 없음 select files]
 <img width="1370" alt="image" src="https://github.com/mysqlsumi/hw-lakehouse/assets/31054795/dfec5db0-a6ba-4eb2-a7a4-aed7c9e0ae4b">
 <img width="997" alt="image" src="https://github.com/mysqlsumi/hw-lakehouse/assets/31054795/a39fa907-e1dd-4d62-bf94-52c096be695c">
