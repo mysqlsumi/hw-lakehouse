@@ -8,7 +8,7 @@ How to run HeatWave Lakehouse
 
 ## 2. 실행 코드
 ### 1) sql 실행 명령어 (mysqlsh)
-
+#### 1-1. Using CSV file, Using PAR, Auto Parallel Load
 ```
 create database mydemo;
 use mydemo;
@@ -20,8 +20,13 @@ SET @ext_tables = '[{"db_name": "mydemo", "tables": [{"table_name": "iot_data", 
 
 SET @options = JSON_OBJECT('mode', 'normal', 'external_tables', CAST(@ext_tables AS JSON));
 call sys.heatwave_load(@db_list, @options);
+SELECT * FROM mydemo.iot_data LIMIT3;
+SELECT log->>"$.sql" AS "Load Script" FROM sys.heatwave_autopilot_report WHERE type = "sql" ORDER BY id\G
+```
+#### 1-2. Using CSV file, Using PAR, manual laod
 ```
 
+```
 ### 2) 실행 캡쳐 화면
 <img width="1131" alt="image" src="https://github.com/mysqlsumi/hw-lakehouse/assets/31054795/d988870a-742d-43c3-b750-0406c3b7fc53">
 <img width="1131" alt="image" src="https://github.com/mysqlsumi/hw-lakehouse/assets/31054795/93dcc27a-e3e3-4170-8318-93791137b60d">
