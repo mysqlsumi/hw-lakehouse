@@ -204,25 +204,11 @@ Load Script: ALTER TABLE `mydemo`.`iot_data2` SECONDARY_LOAD;
 
 1-2 실행 결과
 
- MySQL  10.0.1.59:33060+ ssl  hwdemo  SQL > CREATE TABLE IF NOT EXISTS `supplier` (   `co` double,   `humidity` double ,   `temp` double  ) ENGINE=lakehouse SECONDARY_ENGINE=rapid   ENGINE_ATTRIBUTE='{"dialect": {"format": "csv", "field_delimiter":",", "record_delimiter": "\\n"},     "file": [{"par": "https://objectstorage.ap-seoul-1.oraclecloud.com/n/idazzjlcjqzj/b/iot-csv/o/iot_dataiot_telemetry_data3.csv"}]}';
+ SQL > CREATE TABLE IF NOT EXISTS `iot_data` (   `co` double,   `humidity` double ,   `temp` double  ) ENGINE=lakehouse SECONDARY_ENGINE=rapid   ENGINE_ATTRIBUTE='{"dialect": {"format": "csv", "field_delimiter":",", "record_delimiter": "\\n"},     "file": [{"par": "https://objectstorage.ap-seoul-1.oraclecloud.com/n/idazzjlcjqzj/b/iot-csv/o/iot_dataiot_telemetry_data3.csv"}]}';
 
 Query OK, 0 rows affected (0.0053 sec)
 
- MySQL  10.0.1.59:33060+ ssl  hwdemo  SQL > show tables;
-
-+------------------+
-
-| Tables_in_hwdemo |
-
-+------------------+
-
-| supplier         |
-
-+------------------+
-
-1 row in set (0.0010 sec)
-
- MySQL  10.0.1.59:33060+ ssl  hwdemo  SQL > desc supplier;
+ SQL > desc iot_data;
 
 +----------+--------+------+-----+---------+-------+
 
@@ -240,7 +226,7 @@ Query OK, 0 rows affected (0.0053 sec)
 
 3 rows in set (0.0017 sec)
 
- MySQL  10.0.1.59:33060+ ssl  hwdemo  SQL > ALTER TABLE hwdemo.supplier SECONDARY_LOAD;
+SQL > ALTER TABLE mydemo.iot_data SECONDARY_LOAD;
 
 Query OK, 0 rows affected, 4 warnings (6.4117 sec)
 
