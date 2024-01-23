@@ -17,7 +17,7 @@ How to run HeatWave Lakehouse
 ## 1. 실행 환경 (Running Environment)
 ### 1) Compute OS : OL 8 on OCI for bastion server
 ### 2) MDS Shape : MySQL.HeatWave.VM.Standard.E3, enabled lakehouse 
-### 3) MySQL version: 8.0.34
+### 3) MySQL 버전(version): 8.0.34
 
 ## 2. 실행 코드 (How to run)
 ### 1) mysql shell을 이용해서 sql 실행 명령어를 통해 실행하는 방법 (Run with SQL command using mysql shell)
